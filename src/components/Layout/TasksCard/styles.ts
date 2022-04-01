@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TrashIcon } from '@radix-ui/react-icons'
 import {
   gray,
   blue,
@@ -11,15 +12,32 @@ import {
 } from '@radix-ui/colors';
 
 interface Props {
-  done: boolean
+  done: boolean,
+
+}
+interface TrashProps {
+  hidden: boolean,
 }
 
+export const CustomTrashIcon = styled(TrashIcon)<TrashProps>`
+  transition: .2s;
+  opacity: ${(props) => props.hidden ? "1" : "0"};
+`;
+
+
 export const Container = styled.div<Props>`
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   margin-top: 1rem;
   cursor: pointer;
   text-decoration: ${(props) => props.done ? "line-through": "none"};
+`;
+
+export const Content = styled.div`
+  align-items: center;
+  display: flex;
 `;
 
 export const InfoTask = styled.div`

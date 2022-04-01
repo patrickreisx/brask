@@ -53,6 +53,7 @@ function App() {
               title={item.title} 
               done={item.done} 
               onClick={() => finishTodo(index)}
+              deleteTodo={() => handleDeleteTodo(index)}
             />
           </CustomContext>
       ))}

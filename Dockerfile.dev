@@ -1,0 +1,12 @@
+FROM node:16-bullseye-slim
+
+WORKDIR /app
+
+# export PATH=/app/node_modules/.bin:$PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json ./
+RUN npm install --force
+
+EXPOSE 3000
+CMD ["npx","react-scripts","start"]

@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: brask-dev:latest
+    container_name: brask-app
+    restart: unless-stopped
+    working_dir: /app
+    stdin_open: true
+    volumes:
+      - ./:/app
+    networks:
+      - brask-app
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+
+networks:
+  brask-app:
+    driver: bridge
